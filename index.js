@@ -12,16 +12,67 @@
 'use strict';
 
 function id() {
-    return "Replace This With Your Student ID";
+    return "UP857256";
     // e.g. return "UP654321";
 }
 
 function fn() {
-    return "Replace This With Your First Name";
+    return "Sam";
 }
 
 function sn() {
-    return "Replace This With Your Surname";
+    return "Riches";
+}
+
+function targetTextToConsole(event){
+    console.log(event.target.textContent)
+}
+
+function tttcAttacher(){
+    window.button0.addEventListener("click", targetTextToConsole)
+}
+
+function lovelyParaAttacher(){
+    window.thisisalovelyparagraph.addEventListener("click", lovelyToggle)
+}
+
+function lovelyButtonAttacher(){
+    window.button1.addEventListener("click", lovelyToggle)
+}
+
+function concatWorker(event){
+    window.out1.textContent = window.in1.value + window.in2.value
+}
+
+function concatAttacher(){
+    window.in1.addEventListener("change", concatWorker);
+    window.in2.addEventListener("change", concatWorker)
+}
+
+function snitchAttacher(){
+    window.mousewatcher.addEventListener("mouseover", snitchUpdater);
+    window.mousewatcher.addEventListener("mouseout", snitchUpdater)
+}
+
+function reportUpdater(event){
+    document.getElementById("report").textContent = "x: " + event.screenX + " y: " + event.screenY
+}
+
+function reportAttacher(){
+    window.mousereporter.addEventListener("mousemove", reportUpdater)
+}
+
+function idValidationWatcher(event){
+    if (event.target.value.includes(" ")){
+        event.target.classList.add("invalid")
+    }
+    else{
+        event.target.classList.remove("invalid")
+    }
+}
+
+function idValidationAttacher(){
+    document.getElementById("newid").addEventListener("input", idValidationWatcher)
 }
 
 /**
@@ -39,7 +90,7 @@ function exampleEventHandler(event) {
 
 // used by snitchAttacher
 function snitchUpdater(event) {
-  window.snitch.textContent = (event.type == 'mouseover' ? "IN" : "OUT");
+  window.snitch.textContent = (event.type === 'mouseover' ? "IN" : "OUT");
 }
 
 // used by lovelyParaAttacher
@@ -50,3 +101,4 @@ function lovelyToggle() {
 /**
  * Add your functions here...
  */
+
